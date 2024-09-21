@@ -22,8 +22,13 @@ import { ERC20 } from "@/abi/ERC20";
 const getABIsFromLocalDirectory = async () => {
   return [
     {
-      name: "Token",
-      address: "0x89434EC9fBc25C9eF419E4457a9b846D68ec580C",
+      name: "TokenA",
+      address: "0x5fc8d32690cc91d4c39d9d3abcbd16989f875707",
+      abi: ERC20.abi,
+    },
+    {
+      name: "TokenB",
+      address: "0x0165878a594ca255338adfa4d48449f69242eb8f",
       abi: ERC20.abi,
     },
   ];
@@ -32,8 +37,10 @@ const getABIsFromLocalDirectory = async () => {
 const ABITabs = () => {
   const [abis, setAbis] = useState([]);
   //   const { address, isConnected } = useAccount();
+  const account = useAccount();
 
   useEffect(() => {
+    console.log(account);
     const loadABIs = async () => {
       const loadedABIs = await getABIsFromLocalDirectory();
       setAbis(loadedABIs);

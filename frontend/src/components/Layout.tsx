@@ -17,7 +17,7 @@ import {
   Triangle,
   Turtle,
 } from "lucide-react";
-
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -289,7 +289,8 @@ export function Layout() {
               </form>
             </DrawerContent>
           </Drawer>
-          <DynamicWidget />
+          {/* <DynamicWidget /> */}
+          <ConnectButton />
         </header>
         <Router>
           <div>
