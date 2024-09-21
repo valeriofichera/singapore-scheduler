@@ -1,3 +1,4 @@
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import {
   Bird,
   Book,
@@ -43,7 +44,9 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import SelectPage from "@/pages/select/page";
-import { DynamicWidget } from "@dynamic-labs/sdk-react-core";
+
+import { DynamicWidget, useDynamicContext } from "@dynamic-labs/sdk-react-core";
+import Debug from "@/pages/debug/Debug";
 
 export function Layout() {
   return (
@@ -288,7 +291,14 @@ export function Layout() {
           </Drawer>
           <DynamicWidget />
         </header>
-        <SelectPage />
+        <Router>
+          <div>
+            <Routes>
+              <Route path="/debug" element={<Debug />} />
+              <Route path="/" element={<SelectPage />} />
+            </Routes>
+          </div>
+        </Router>
       </div>
     </div>
   );
